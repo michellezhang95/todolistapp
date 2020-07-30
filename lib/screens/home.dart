@@ -24,8 +24,8 @@ class Home extends StatelessWidget {
               onTap: () {
                 //go to theme change screen
 
-                Navigator.pop(context);
-                return customiseApp();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => customiseApp()));
               },
             ),
             ListTile(

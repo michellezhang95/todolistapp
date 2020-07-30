@@ -5,8 +5,8 @@ class customiseApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('lol'),
-        backgroundColor: Colors.blue[100],
+        title: Text('Customise Theme'),
+        backgroundColor: Colors.green[300],
       ),
     );
   }

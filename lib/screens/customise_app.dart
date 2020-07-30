@@ -5,9 +5,13 @@ class customiseApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Customise Theme'),
-        backgroundColor: Colors.green[300],
+        title: Text('Account Settings'),
+        backgroundColor: Colors.brown[800],
       ),
     );
   }
 }
+
+//dark/light theme
+//set colour for light theme
+//change user name (firebase)

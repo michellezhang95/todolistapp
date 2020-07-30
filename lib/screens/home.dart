@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todolistapp/screens/customise_app.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class Home extends StatelessWidget {
   String themeColour;
@@ -8,39 +9,42 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Text('Settings'),
-              decoration: BoxDecoration(
-                color: Colors.purple,
+        key: scaffoldKey,
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                child: Text('Settings', style: TextStyle(fontSize: 55.0)),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
               ),
-            ),
-            ListTile(
-              title: Text('Change theme'),
-              onTap: () {
-                //go to theme change screen
-
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => customiseApp()));
-              },
-            ),
-            ListTile(
-              title: Text('Clear list'),
-              onTap: () {
-                //clear list of all elements
-                Navigator.pop(context);
-              },
-            )
-          ],
+              ListTile(
+                title: Text('Account Settings'),
+                onTap: () {
+                  //go to theme change screen
+                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => customiseApp()));
+                },
+              ),
+              ListTile(
+                title: Text('Clear list'),
+                onTap: () {
+                  //clear list of all elements
+                  Navigator.pop(context);
+                },
+              )
+            ],
+          ),
         ),
-      ),
-      appBar: AppBar(
+        appBar: GradientAppBar(
+          backgroundColorStart: Colors.green,
+          backgroundColorEnd: Colors.black,
           title: Text('To do!'),
-          backgroundColor: Colors.amber[500],
+
+          //gradient: LinearGradient(colors: null),
           actions: <Widget>[
             IconButton(
                 icon: const Icon(Icons.create),
@@ -51,7 +55,7 @@ class Home extends StatelessWidget {
               icon: const Icon(Icons.settings),
               onPressed: null,
             ),
-          ]),
-    );
+          ],
+        ));
   }
 }

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class customiseApp extends StatefulWidget {
-  @override
-  _customiseAppState createState() => _customiseAppState();
-}
-
-class _customiseAppState extends State<customiseApp> {
+class customiseApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('lol'),
+        backgroundColor: Colors.blue[100],
+      ),
+    );
   }
 }

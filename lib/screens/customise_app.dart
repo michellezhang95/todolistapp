@@ -49,7 +49,6 @@ class _ThemeListState extends State<ThemeList> {
               currentTheme = themes.elementAt(index);
               print(currentTheme);
               //call method in customiseApp to change appbar colour
-              setState(() => currentColor = color);
               customiseApp().changeTheme(currentTheme);
             },
             child: Text(

@@ -20,9 +20,19 @@ class ThemeList extends StatefulWidget {
 }
 
 class _ThemeListState extends State<ThemeList> {
+  final List<String> themes = <String>['Red', 'Pink', 'Blue', 'Black', 'Green'];
+  final int colorCode = 300;
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ListView.separated(
+      padding: const EdgeInsets.all(8),
+      itemCount: themes.length,
+      itemBuilder: (BuildContext context, colorCode){
+        return Container(
+          
+        )
+      },
+    );
   }
 }
 //dark/light theme

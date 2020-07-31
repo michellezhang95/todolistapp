@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:todolistapp/screens/home.dart';
 
-class customiseApp extends StatelessWidget {
+class customiseApp extends StatefulWidget {
+  Color currentColor = Colors.purple[50];
+  void changeTheme(Color color) {
+    //method to change appbar color
+    print(color);
+    this.currentColor = color;
+  }
+
   @override
-  String color = '';
+  _customiseAppState createState() => _customiseAppState();
+}
+
+class _customiseAppState extends State<customiseApp> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ThemeList(),
       appBar: AppBar(
         title: Text('Account Settings'),
-        backgroundColor: Colors.brown[800],
+        backgroundColor: customiseApp().currentColor,
       ),
     );
   }
@@ -20,18 +32,34 @@ class ThemeList extends StatefulWidget {
 }
 
 class _ThemeListState extends State<ThemeList> {
-  final List<String> themes = <String>['Red', 'Pink', 'Blue', 'Black', 'Green'];
-  final int colorCode = 300;
+  final List<Color> themes = <Color>[Colors.red, Colors.orange];
+  Color currentTheme;
+  //final int colorCode = 300;
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       padding: const EdgeInsets.all(8),
       itemCount: themes.length,
-      itemBuilder: (BuildContext context, colorCode){
+      itemBuilder: (BuildContext context, int index) {
         return Container(
-          
-        )
+          height: 50.0,
+          color: themes.elementAt(index),
+          child: FlatButton(
+            onPressed: () {
+              currentTheme = themes.elementAt(index);
+              print(currentTheme);
+              //call method in customiseApp to change appbar colour
+              setState(() => currentColor = color);
+              customiseApp().changeTheme(currentTheme);
+            },
+            child: Text(
+              'Set colour',
+              style: TextStyle(color: Colors.white, fontSize: 20.0),
+            ),
+          ),
+        );
       },
+      separatorBuilder: (BuildContext context, int index) => const Divider(),
     );
   }
 }

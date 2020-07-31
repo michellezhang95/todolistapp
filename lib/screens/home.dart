@@ -40,9 +40,9 @@ class Home extends StatelessWidget {
             ],
           ),
         ),
-        appBar: GradientAppBar(
-          backgroundColorStart: Colors.green,
-          backgroundColorEnd: Colors.black,
+        appBar: AppBar(
+          backgroundColor: Colors.green,
+
           title: Text('To do!'),
 
           //gradient: LinearGradient(colors: null),
